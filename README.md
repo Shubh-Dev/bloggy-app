@@ -1,6 +1,6 @@
-# database_based_on_diagram
+# Blog app
 
-This a Blog app in development with ruby, rails and PostgreSQL.
+This is This is a Catalog of blogs created with ruby, rails and PostgreSQL.
 
 # ER diagram
 
