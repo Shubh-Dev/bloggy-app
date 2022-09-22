@@ -3,10 +3,9 @@ class Post < ApplicationRecord
   has_many :comments, dependent: :destroy, inverse_of: :post, foreign_key: :post_id
   has_many :likes, dependent: :destroy, inverse_of: :post, foreign_key: :post_id
   validates :text, presence: true, length: { minimum: 3, maximum: 1000 }
-  validates :title, presence: true, length: { minimum: 3, maximum: 50 }
-  validates :commentscounter, numericality: { only_integer: true }
-  validates :likescounter, numericality: { only_integer: true }
-  
+  validates :title, presence: true, length: { minimum: 3, maximum: 250 }
+  validates :commentscounter, numericality: { only_integer: true, greater_than_or_equal_to: 0 } 
+  validates :likescounter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
   after_save :update_post_counter
 
