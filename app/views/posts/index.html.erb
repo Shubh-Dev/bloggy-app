@@ -1,35 +1,11 @@
-<h2>posts will load Here</h2>
+<h2>posts Loading</h2>
 
-<div class="post-container">
-
-    <div class="post-head-container">
-    <div class="image-container">
-        <h2>Image</div>
-    </div>
-
-
-    <div class="text-container">
-        <h3>Post Title</div>
-        <p>Post Content</p>
-    </div>
-    </div>
-
-    <div>
+<div>
+    <% @posts.each do |post| %>
         <div>
-            <h3>post-1</h3>
-            <p>lorem ipsum</p>
-             <p>comments</p>
-              <p>likes</p>
+        <h3><%= post.title %></h3>
+        <p><%= post.body %></p>
         </div>
-        <div class="comment-list">
-        <ul>
-            <li>User-1: comment - 1</li>
-            <li>User-2: comment - 2</li>
-            <li>User-3: comment - 3</li>
-            <li>User-4: comment - 4</li>
-            <li>User-5: comment - 5</li>
-        </ul>
-    
-    </div>
+    <% end %>
 
 </div>

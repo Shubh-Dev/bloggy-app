@@ -1,16 +1,7 @@
-<h1>Index (Will load users in this page)</h1>
+<h1>Users</h1>
 
+<% @users.each do |user| %>
+  Name: <%= user.name %><br>
+  number of posts: <%= user.postscounter %><br>
 
-<div class="container"> 
-
-<div class="image-container">
-    <h2>Image</div>
-</div>
-
-<div class="text-container"> 
-    <h3>User Name</div> 
-    <p>Total number of Posts: X</p>
-
-</div>
-
-</div> 
+<% end %>
