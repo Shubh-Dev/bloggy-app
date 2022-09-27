@@ -18,9 +18,9 @@ RSpec.describe 'Users', type: :request do
     end
 
     it 'includes correct text' do
-        get users_path
-        expect(response.body).to include('Will load users in this page')
-        end
+      get users_path
+      expect(response.body).to include('Will load users in this page')
+    end
   end
 
   describe 'GET /show' do
@@ -35,8 +35,8 @@ RSpec.describe 'Users', type: :request do
     end
 
     it 'includes correct text' do
-        get user_path(1)
-        expect(response.body).to include('One user and posts will be displayed here')
-        end
+      get user_path(1)
+      expect(response.body).to include('One user and posts will be displayed here')
+    end
   end
 end

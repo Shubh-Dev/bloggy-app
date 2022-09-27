@@ -18,9 +18,9 @@ RSpec.describe 'Posts', type: :request do
     end
 
     it 'includes correct text' do
-        get posts_path
-        expect(response.body).to include('posts will load Here')
-        end
+      get posts_path
+      expect(response.body).to include('posts will load Here')
+    end
   end
 
   describe 'GET /show' do
@@ -35,8 +35,8 @@ RSpec.describe 'Posts', type: :request do
     end
 
     it 'includes correct text' do
-        get post_path(1)
-        expect(response.body).to include('Details of User\'s post')
-        end
+      get post_path(1)
+      expect(response.body).to include('Details of User\'s post')
+    end
   end
 end
