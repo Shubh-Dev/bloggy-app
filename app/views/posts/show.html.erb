@@ -1,2 +1,8 @@
-<h2><%=@user_post.title%></h2>
-<%=@user_post.content%>
+<div class="each-post-container">
+<h2>Post by <%= @post.user.name %></h2>
+<h3>Title: <%=@post.title%></h3>
+<h4>Content: <%=@post.text%></h4>
+<p>Created on <%= @post.created_at.strftime("%B %d, %Y") %></p>
+<p>Updated on <%= @post.updated_at.strftime("%B %d, %Y") %></p>
+
+</div>

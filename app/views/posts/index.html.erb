@@ -1,10 +1,14 @@
-<h2>posts Loading</h2>
 
-<div>
+
+<div class="all-post-container">
+    <h1>Total Posts: <%= @posts.count %></h1>
+
     <% @posts.each do |post| %>
         <div>
-        <h3><%= post.title %></h3>
-        <p><%= post.body %></p>
+        <img src="<%= @user.photo %>" />
+        <h2>Post by <%= post.user.name %></h2>
+        <h3>Title: <%= post.title %></h3>
+        <p>Content: <%= post.text %></p>
         </div>
     <% end %>
 
