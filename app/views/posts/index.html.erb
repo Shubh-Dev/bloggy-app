@@ -4,12 +4,12 @@
     <h1>Total Posts: <%= @posts.count %></h1>
 
     <% @posts.each do |post| %>
-        <div>
-        <img src="<%= @user.photo %>" />
-        <h2>Post by <%= post.user.name %></h2>
-        <h3>Title: <%= post.title %></h3>
-        <p>Content: <%= post.text %></p>
-        </div>
+        <%= render post %>
+        <div class='comments'>
+    <%post.show_recent_comments.each do |comment|%>
+    <p>Comments: <%=post.author.name%>: <%=comment.text%></p>
+    <%end%>
+     </div>
     <% end %>
 
 </div>

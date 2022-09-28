@@ -10,7 +10,7 @@ class Post < ApplicationRecord
   after_save :update_post_counter
 
   def update_post_counter
-    user.increment!(:postscounter)
+    user.update(postscounter: user.posts.size)
   end
 
   # return the 5 most recent comments

@@ -11,12 +11,15 @@
 </div>
 
 <div class="user-posts">
-<%@posts.each do |post| %>
-<h4>Post #<%= post.id %></h4>
-<h4><%= post.text %></h4>
-<p>Comments: <%post.commentscounter%></p>
-<p>Likes: <%post.likescounter%></p>
+<% @user.show_recent_posts.reverse.each_with_index do |post, index| %>
+<div class="post-container">
+<h4>Post No: <%= index + 1 %></h4>
+<h4><%= post.title %></h4>
+<p><%= post.text %></p>
+</div>
 <%end%>
+
+<a href="/users/<%= @user.id %>/posts" class="users-show__button">See all posts</a>
 
 </div>
 
