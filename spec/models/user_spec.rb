@@ -29,3 +29,11 @@ RSpec.describe User, type: :model do
     expect(subject).to be_valid
   end
 end
+
+RSpec.describe User, type: :model do
+  subject { User.new(name: 'test name', photo: 'test photo', bio: 'test bio', postscounter: 0) }
+  before { subject.save }
+  it 'creates a user' do
+    expect(subject).to be_valid
+  end
+end
