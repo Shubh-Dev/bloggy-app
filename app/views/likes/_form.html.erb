@@ -1,0 +1,3 @@
+<%= form_with url: "/users/#{@post.user_id}/posts/#{@post.id}/likes", scope: :like do |form| %>
+    <%= form.submit "Like" %>
+<% end %>

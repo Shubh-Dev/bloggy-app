@@ -1,0 +1,25 @@
+<%= form_for @user do |f| %>
+    <div>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+    </div>
+    <div>
+        <%= f.label :photo %>
+        <%= f.text_field :photo %>
+    </div>
+
+    <div>
+        <%= f.label :bio %>
+        <%= f.text_field :bio %>
+    </div>
+
+    <div>
+        <%= f.label "postscounter" %>
+        <%= f.text_field :postscounter %>
+    </div>
+
+    <div>
+        <%= f.submit "Create User" %>
+    </div>
+
+<% end %>

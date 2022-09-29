@@ -1,6 +1,8 @@
 
 
 <div class="all-post-container">
+    <img src="<%= @user.photo %>" />
+    <h1><%= @user.name %></h1>
     <h1>Total Posts: <%= @posts.count %></h1>
 
     <% @posts.each do |post| %>

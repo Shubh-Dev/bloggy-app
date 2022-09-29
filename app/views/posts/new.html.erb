@@ -1,0 +1,35 @@
+Add a new post  for the first user
+
+<%form_with model: @post, url: user_posts_path, method: :post do |f| %>
+<div>
+<%= f.label :title %>
+<%= f.text_field :title %>
+</div>
+
+<div>
+<%= f.label :text %>
+<%= f.text_field :text %>
+</div>
+
+<div>
+<%= f.label :postscounter %>
+<%= f.text_field :postscounter %>
+</div>
+
+<div>
+<%= f.label :likescounter %>
+<%= f.text_field :likescounter %>
+</div>
+
+<div>
+<%= f.label :commentscounter %>
+<%= f.text_field :commentscounter %>
+</div>
+
+<div>
+<%= f.submit "Add a post" %>
+</div>
+
+<% end %>
+
+
