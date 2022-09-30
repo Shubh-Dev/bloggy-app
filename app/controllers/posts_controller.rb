@@ -11,11 +11,6 @@ class PostsController < ApplicationController
     @comments = Comment.where(post_id: @post.id).order('created_at DESC')
   end
 
-  def new
-    @post = Post.new
-    render new, layout: { post: @new_post } 
-  end
-
   def create
     @post = current_user.posts.new(post_params)
     if post.save
@@ -23,6 +18,11 @@ class PostsController < ApplicationController
     else
       render :new
   end
+end
+
+def new
+  @post = Post.new
+  render new
 end
 
 private
