@@ -7,4 +7,5 @@ class LikesController < ApplicationController
     else
       render :create
     end
+  end
 end

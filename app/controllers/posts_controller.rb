@@ -17,20 +17,17 @@ class PostsController < ApplicationController
       redirect_to "/users/#{@post.user.id}/posts/#{@post.id}"
     else
       render :new
+    end
   end
-end
 
-def new
-  @post = Post.new
-  render new
-end
+  def new
+    @post = Post.new
+    render new
+  end
 
-private
+  private
 
-def post_params
-
-params.require(:post).permit(:text, :title, :user_id, :postscounter, :commentscounter, :likescounter)
-end
-
-
+  def post_params
+    params.require(:post).permit(:text, :title, :user_id, :postscounter, :commentscounter, :likescounter)
+  end
 end

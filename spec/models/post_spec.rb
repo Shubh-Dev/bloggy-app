@@ -26,10 +26,4 @@ RSpec.describe Post, type: :model do
     subject.commentscounter = 'a'
     expect(subject).to_not be_valid
   end
-
-  # it 'commentscounter increases when a comment is added' do
-  #   subject.commentscounter = 5
-  #   subject.save
-  #   expect(subject.commentscounter).to eq(5)
-  # end
 end

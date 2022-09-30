@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  def create 
+  def create
     @comment = current_user.comments.create(params[:comment])
     @comment.post_id = params[:post_id]
     if @comment.save
@@ -8,7 +8,8 @@ class CommentsController < ApplicationController
       render :create
     end
   end
-  private 
+
+  private
 
   def comment_params
     params.require(:comment).permit(:text, :user_id, :post_id)

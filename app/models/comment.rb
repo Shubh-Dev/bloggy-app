@@ -1,6 +1,6 @@
 class Comment < ApplicationRecord
   belongs_to :post, class_name: 'Post'
-  belongs_to :user,  foreign_key: :user_id, class_name: 'User'
+  belongs_to :user, foreign_key: :user_id, class_name: 'User'
   validates :text, presence: true, length: { minimum: 3, maximum: 1000 }
 
   # update comments counter
