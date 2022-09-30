@@ -1,0 +1,6 @@
+<%= form_with url: "/users/#{post.user.id}/posts/#{post.id}/likes" do |form| %>
+  <%= form.submit "Like" %>
+    <span>
+      <%= post.likescounter ? post.likescounter  : 0 %>
+    </span>
+<% end %>

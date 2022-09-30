@@ -3,5 +3,5 @@
           <h4><%=post.title%></h4>
   <%end%>
   <p><%=post.text%></p>
-  <span>Comments: <%=post.commentscounter%>, Likes: <%=post.likescounter%></span>
+  <span>Comments: <%=post.commentscounter ? post.commentscounter : 0%>  Likes: <%=post.likescounter ? post.likescounter : 0 %></span>
 </div>

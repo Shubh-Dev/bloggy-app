@@ -5,7 +5,10 @@ class PostsController < ApplicationController
   end
 
   def show
+    @current_user = current_user
+    @user = User.find(params[:user_id])
     @post = Post.find(params[:id])
+    @comments = Comment.where(post_id: @post.id).order('created_at DESC')
   end
 
   def new
@@ -14,10 +17,9 @@ class PostsController < ApplicationController
   end
 
   def create
-    post = Post.new(post_params)
-    post.user = current_user
+    @post = current_user.posts.new(post_params)
     if post.save
-      redirect_to user_post_path(current_user, post)
+      redirect_to "/users/#{@post.user.id}/posts/#{@post.id}"
     else
       render :new
   end

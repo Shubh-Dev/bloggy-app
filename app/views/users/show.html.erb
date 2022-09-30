@@ -2,7 +2,7 @@
 <div class="image-and-name-container">
 <img src="<%= @user.photo %>" />
 <h2><%= @user.name %></h2>
-<p>Number of Posts: <%= @user.postscounter %></p>
+<p>Number of Posts: <%= @user.postscounter ? @user.postscounter : 0 %></p>
 </div>
 
 <div class="user-bio">
@@ -16,8 +16,8 @@
 <h4>Post No: <%= index + 1 %></h4>
 <h4><%= post.title %></h4>
 <p><%= post.text %></p>
-<p>Comments: <%post.commentscounter%></p>
-<p>Likes: <%post.likescounter%></p>
+<p>Comments: <% post.commentscounter ? post.commentscounter : 0 %></p>
+<p>Likes: <% post.likescounter ? post.likescounter : 0 %></p>
 
 
 </div>
