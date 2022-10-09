@@ -1,24 +1,9 @@
-<div class='container mt-5'>
+<h1>Create a Post</h1>
 
-<%= form_with model: [@user, @post], url: create_user_post_path  do |form| %>
-  <% if @post.errors.any? %>
-    <div>
-      <% @post.errors.full_messages.each do |message| %>
-        <div><%= message %></div>
-      <% end %>
-    </div>
+<%= form_with model: @post, url: user_posts_url, method: :post do |form| %>   
+  <%= form.label :title %> <br>
+  <%= form.text_field :title %> <br>
+  <%= form.label :text %> <br>
+  <%= form.text_area :text %> <br>  
+  <%= form.submit "create Post" %>
   <% end %>
-  <div class="mb-4 flex flex-col">
-    <%= form.label :title %>
-    <%= form.text_field :title, placeholder: "Add post title" %>
-  </div>
-  <div class="mb-4 flex flex-col">
-    <%= form.label :text %>
-    <%= form.text_field :text, placeholder: "Add post body" %>
-  </div>
-  
-  <div class="mb-4 flex flex-col btn btn-secondary">
-    <%= form.submit "Add post" %>
-  </div>
-<% end %>
-</div>

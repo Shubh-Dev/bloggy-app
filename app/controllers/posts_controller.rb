@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   def index
     @user = User.find(params[:user_id])
-    @posts = Post.where(user: @user).order('created_at DESC')
+    @posts = @user.show_recent_posts
   end
 
   def show
@@ -12,22 +12,33 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = current_user.posts.new(post_params)
-    if post.save
-      redirect_to "/users/#{@post.user.id}/posts/#{@post.id}"
-    else
-      render :new
-    end
+      @post = Post.new(params.require(:post).permit(:user, :title, :text))
+      if @post.save
+        flash[:success] = 'Post created!'
+
+        redirect_to user_posts_path(@post.id)
+      else
+        flash[:danger] = 'Post not created!'
+        redirect_to user_posts_path(@post.id)
+      end
   end
 
   def new
     @post = Post.new
-    render new
   end
 
-  private
+  # private
 
-  def post_params
-    params.require(:post).permit(:text, :title, :user_id, :postscounter, :commentscounter, :likescounter)
-  end
+  # def post_params
+  #   params.require(:post).permit(:text, :title, :user_id, :postscounter, :commentscounter, :likescounter)
+  # end
 end
+
+# @user = User.find(params[:user_id])
+# @post = Post.new(post_params)
+# @post.user = @user
+# if @post.save
+#   redirect_to user_posts_path(@user)
+# else
+#   render :new
+# end
