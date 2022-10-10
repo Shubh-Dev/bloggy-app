@@ -12,15 +12,21 @@ class PostsController < ApplicationController
   end
 
   def create
-      @post = Post.new(params.require(:post).permit(:user, :title, :text))
-      if @post.save
-        flash[:success] = 'Post created!'
+    post = params[:post]
+    user = User.find(params[:user_id])
+    new_post = Post.new(post.permit(:title, :text))
+    new_post.commentscounter = 0
+    new_post.likescounter = 0
+    new_post.author_id = user.id
 
-        redirect_to user_posts_path(@post.id)
-      else
-        flash[:danger] = 'Post not created!'
-        redirect_to user_posts_path(@post.id)
-      end
+    if new_post.save
+      flash[:notice] = 'New post created successfully.'
+      redirect_to user_post_url(user, new_post)
+    else
+      flash[:error] = 'Creating new post failed!'
+      @post = new_post
+      render :new
+    end
   end
 
   def new
