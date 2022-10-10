@@ -4,8 +4,8 @@ class CommentsController < ApplicationController
     @comments = Comment.where(post: @post.id)
   end
 
-  def show 
-    @ser = User,find(params[:id])
+  def show
+    @ser = User, find(params[:id])
     @comment = Comment.find(params[:id])
   end
 
@@ -13,9 +13,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new
   end
 
-  def edit
-
-  end
+  def edit; end
 
   def create
     user = User.find(params[:user_id])
@@ -26,16 +24,15 @@ class CommentsController < ApplicationController
     new_comment.post_id = post.id
 
     if new_comment.save
-    post.commentscounter += 1
-    post.save
-    redirect_to user_post_path(user, post)
+      post.commentscounter += 1
+      post.save
+      redirect_to user_post_path(user, post)
     else
-    render :new
-  end
-   
+      render :new
+    end
   end
 
-  private 
+  private
 
   def set_comment
     @comment = Comment.find(params[:id])
@@ -45,16 +42,14 @@ class CommentsController < ApplicationController
     params.require(:comment).permit(:text)
   end
 
-  def destroy 
+  def destroy
     @comment = Comment.find(params[:comment_id])
     @post = Post.find(params[:post_id])
     @post.commentscounter -= 1
     @comment.destroy
     @post.save
 
-    flash[:notice] = "Comment deleted"
+    flash[:notice] = 'Comment deleted'
     redirect_to user_post_path(current_user.id, @comment.post_id)
-  end 
-
+  end
 end
-

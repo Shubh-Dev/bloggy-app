@@ -26,5 +26,4 @@ RSpec.describe Post, type: :model do
     subject.commentscounter = 'a'
     expect(subject).to_not be_valid
   end
-
 end
