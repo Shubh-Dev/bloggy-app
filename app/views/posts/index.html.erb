@@ -1,15 +1,20 @@
 
 
 <div class="all-post-container">
+    <img src="<%= @user.photo %>" />
+    <h1><%= @user.name %></h1>
     <h1>Total Posts: <%= @posts.count %></h1>
 
     <% @posts.each do |post| %>
         <%= render post %>
+
         <div class='comments'>
     <%post.show_recent_comments.each do |comment|%>
-    <p>Comments: <%=post.author.name%>: <%=comment.text%></p>
+    <p>Comments: <%=post.user.name%>: <%=comment.text%></p>
     <%end%>
      </div>
     <% end %>
 
 </div>
+
+
