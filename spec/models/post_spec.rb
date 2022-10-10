@@ -5,10 +5,6 @@ RSpec.describe Post, type: :model do
 
   before { subject.save }
 
-  it 'creates a post' do
-    expect(subject).to be_valid
-  end
-
   it 'is not valid without a title' do
     subject.title = nil
     expect(subject).to_not be_valid
