@@ -1,0 +1,31 @@
+<div class="single-user-container">
+<div class="image-and-name-container">
+<img src="<%= @user.photo %>" />
+<h2><%= @user.name %></h2>
+<p>Number of Posts: <%= @user.postscounter ? @user.postscounter : 0 %></p>
+</div>
+
+<div class="user-bio">
+<h4>Bio</div>
+<p><%= @user.bio %></p>
+</div>
+
+<div class="user-posts">
+<% @user.show_recent_posts.reverse.each_with_index do |post, index| %>
+<div class="post-container">
+<h4>Post No: <%= index + 1 %></h4>
+<h4><%= post.title %></h4>
+<p><%= post.text %></p>
+<p>Comments: <% post.commentscounter ? post.commentscounter : 0 %></p>
+<p>Likes: <% post.likescounter ? post.likescounter : 0 %></p>
+
+
+</div>
+<%end%>
+
+<a href="/users/<%= @user.id %>/posts" class="users-show__button">See all posts</a>
+
+</div>
+
+
+</div>

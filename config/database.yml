@@ -24,6 +24,9 @@ default: &default
 development:
   <<: *default
   database: bloggy_app_development
+  host: localhost
+  username: postgres
+  password: motorola123
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -82,5 +85,7 @@ test:
 production:
   <<: *default
   database: bloggy_app_production
-  username: bloggy_app
+  username: postgres
   password: <%= ENV["BLOGGY_APP_DATABASE_PASSWORD"] %>
+  role: MyRole
+

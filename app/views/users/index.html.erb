@@ -1,0 +1,13 @@
+
+    <% @users.each do |user| %>
+        <div class="all-user-container">
+        <div class="user-img-container">
+        <img src="<%= user.photo %>" />
+        </div>
+        <div class="user-details-container">
+        <h2><a href="/users/<%= user.id %>"><%= user.name %></a></h2>
+        <h3>Number of Posts: <%= user.postscounter ? user.postscounter : 0 %></h3>
+        </div>
+        </div>
+    <% end %>
+
